@@ -1,0 +1,92 @@
+
+import SwiftUI
+
+struct MovementCardView: View {
+    var userName: String
+     @Environment(\.presentationMode) var presentationMode
+     @StateObject private var viewModel = MovementViewModel()
+    let columnSpacing: CGFloat = 5
+    
+    var columns: [GridItem] {
+        Array(repeating: .init(.flexible(), spacing: columnSpacing), count: 3)
+    }
+
+    
+    var body: some View {
+        NavigationView{
+            ZStack{
+                Color(hex: "FFFAED")
+                    .edgesIgnoringSafeArea(.all)
+                
+                    .navigationBarItems(leading: Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack {
+                            Text("< BACK")
+                        }
+                        .font(.custom("Strange Path", size: 12))
+                        .foregroundColor(.black)
+                        .background(Color(hex: "FFFAED"))
+                    })
+                
+                Text(" FANTASTIC! LET'S FIND OUT MORE ABOUT THE COMMON MOVEMENTS IN A CAPOEIRA RODA . TO INTERACT WITH IT, PRESS THE CARDS TO FIND OUT THEIR NAMES.")
+                    .font(.custom("Strange Path", size: 10))
+                    .foregroundColor(.black)
+                    .lineSpacing(12)
+                    .padding(.horizontal, 20)
+                    .frame(width: 400, height: 300)
+                    .multilineTextAlignment(.leading)
+                    .offset(y: -300)
+                
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        ForEach(viewModel.movements, id: \.name) { movement in
+                            Button(action: {
+                                viewModel.toggleSelection(for: movement.name)
+                            }) {
+                                VStack {
+                                    Image(movement.isSelected ? movement.selectedImageName : movement.imageName)
+                                        .resizable()
+                                        .scaledToFit()
+
+                                    if movement.isSelected{
+                                        Text(movement.name)
+                                            .font(.custom("Strange Path", size: 10))
+                                            .foregroundColor(.black)
+                                            .padding(.top, 5) 
+
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                
+                NavigationLink(destination: FourMovementsView(userName: userName)) {
+                    ZStack {
+                        Image("bottonTest")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 40)
+                            .cornerRadius(10)
+                            .background(Color(hex: "FFFAED"))
+                        
+                        Text("NEXT")
+                            .font(.custom("Strange Path", size: 14))
+                            .foregroundColor(.black)
+                    }
+                }
+                .cornerRadius(10)
+                .offset(y: 280)
+                
+                
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+
+    }
+}
+
+#Preview {
+    MovementCardView(userName: "JOAO")
+}
