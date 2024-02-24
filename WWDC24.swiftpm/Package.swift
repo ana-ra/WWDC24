@@ -8,16 +8,15 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "WWDC24",
+    name: "Capoeira Experience",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "WWDC24",
+            name: "Capoeira Experience",
             targets: ["AppModule"],
             bundleIdentifier: "com.sil.WWDC24",
-            teamIdentifier: "J7T48SP5FT",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .asset("AppIcon"),
@@ -28,7 +27,8 @@ let package = Package(
             supportedInterfaceOrientations: [
                 .portrait,
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
-            ]
+            ],
+            appCategory: .education
         )
     ],
     targets: [
