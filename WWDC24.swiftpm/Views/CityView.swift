@@ -53,7 +53,7 @@ struct CityView: View {
                 }
                 .padding()
                 .cornerRadius(10)
-                .offset(y: 300)
+                .offset(y: 270)
                 
                 .navigationBarItems(leading: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
