@@ -39,7 +39,7 @@ struct FourMovementsView: View {
                         .offset(y: 10)
                     
                     ScrollView {
-                        LazyVGrid(columns: columns, spacing: 20) { // Ajuste no espaçamento entre os itens do grid
+                        LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(viewModel.movements, id: \.id) { movement in
                                 VStack {
                                     Image(movement.imageName)
@@ -48,10 +48,10 @@ struct FourMovementsView: View {
                                         .frame(width: 180, height: 140)
                                         .cornerRadius(10)
                                         .shadow(color: movement.isSelected ? Color.black.opacity(0.9) : Color.clear, radius: 10, x: 0, y: 0)
-                                    Text(movement.name) // Exibe o nome do movimento
+                                    Text(movement.name)
                                         .font(.custom("Strange Path", size: 10))
                                         .foregroundColor(.black)
-                                        .padding(.top, 5) // Espaçamento entre a imagem e o texto
+                                        .padding(.top, 5)
                                 }
                                 .onTapGesture {
                                     viewModel.toggleSelection(for: movement.id)

@@ -1,9 +1,9 @@
 
 import SwiftUI
 
-struct ChangeView: View {
-    var userName: String
+struct FinalView: View {
     @Environment(\.presentationMode) var presentationMode
+    var userName: String
 
     var body: some View {
         NavigationView{
@@ -23,7 +23,7 @@ struct ChangeView: View {
                    .background(Color(hex: "FFFAED"))
                })
                 
-                Text("EXPLORING NEW SOUNDS IS ALWAYS AN INCREDIBLE EXPERIENCE, \(userName)! I HOPE YOU'VE ENJOYED DIVING INTO THIS UNIVERSE. NOW  LET'S FAMILIARIZE OURSELVES WITH THE MOST COMMON MOVEMENTS. IN CAPOEIRA.")
+                Text(" \(userName)THANK YOU VERY MUCH FOR YOUR TIME, I HOPE YOU ENJOYED THE CAPOEIRA EXPERIENCE. OVER TIME, CAPOEIRA HAS TRANSCENDED ITS ORIGINS AND BECOME AN INTERNATIONALLY RECOGNIZED PRACTICE. IN 2014, UNESCO RECOGNIZED CAPOEIRA AS INTANGIBLE CULTURAL HERITAGE OF HUMANITY, HIGHLIGHTING ITS IMPORTANCE IN PRESERVING BRAZILIAN CULTURE AND HISTORY.")
                     .font(.custom("Strange Path", size: 10))
                     .foregroundColor(.black)
                     .multilineTextAlignment(.leading)
@@ -31,11 +31,11 @@ struct ChangeView: View {
                     .padding(.horizontal)
                     .offset(y: -250)
                 
-                Image("twopeople")
+                Image("finalView")
                     .scaleEffect(0.25)
                     .frame(width: 300, height: 100)
                 
-                NavigationLink(destination: MovementCardView(userName: userName)) {
+                NavigationLink(destination: MainMenuView()) {
                     ZStack {
                         Image("bottonTest")
                             .resizable()
@@ -44,7 +44,7 @@ struct ChangeView: View {
                             .cornerRadius(10)
                             .background(Color(hex: "FFFAED"))
                         
-                        Text("NEXT")
+                        Text("END")
                             .font(.custom("Strange Path", size: 14))
                             .foregroundColor(.black)
                     }
@@ -53,15 +53,15 @@ struct ChangeView: View {
                 .cornerRadius(10)
                 .offset(y: 230)
 
+                
             }
             
         }
         .navigationBarBackButtonHidden(true)
 
-        
     }
 }
 
 #Preview {
-    ChangeView(userName: "JOAO")
+    FinalView(userName: "João")
 }

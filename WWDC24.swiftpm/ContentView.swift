@@ -4,7 +4,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NavigationStack{
-                MainMenuView()
+                AnimationView(userName: "JOAO", selectedMovementIDs: [1, 2, 3, 4])
             }
 
         }

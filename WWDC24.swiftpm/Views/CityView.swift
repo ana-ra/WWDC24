@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CityView: View {
     @Environment(\.presentationMode) var presentationMode
-    var userName: String // Adicione esta linha para receber o nome do usuário
+    var userName: String 
     var body: some View {
         NavigationView {
             ZStack {

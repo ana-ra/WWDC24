@@ -3,6 +3,7 @@ import AVFoundation
 
 
 struct AnimationView: View {
+    
     @StateObject private var viewModel = AnimationViewModel()
     var userName: String
     var selectedMovementIDs: [Int]
@@ -40,7 +41,7 @@ struct AnimationView: View {
                         }
                     }
                 if showFinishButton{
-                    NavigationLink(destination: MainMenuView()) {
+                    NavigationLink(destination: FinalView(userName: userName)) {
                         ZStack{
                             Image("bottonTest")
                                     .resizable()
@@ -57,9 +58,7 @@ struct AnimationView: View {
                     .offset(y: 250)
                 }
                 
-
             }  
-            
             
         }
         .onAppear{
