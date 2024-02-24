@@ -1,6 +1,7 @@
 
 struct MovementsModel {
-    let id: Int
-    let imageName: String
-    var isSelected: Bool = false
+    var id: Int
+    var imageName: String
+    var isSelected: Bool
+    var name: String 
 }

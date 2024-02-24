@@ -2,7 +2,8 @@ import SwiftUI
 
 struct MainMenuView: View {
     @StateObject private var viewModel = MainMenuViewModel()
-    
+    @State private var showAboutView = false
+    @State private var showExplanationView = false 
     var body: some View {
         NavigationView {
             ZStack {
@@ -20,13 +21,11 @@ struct MainMenuView: View {
                     Text("CAPOEIRA EXPERIENCE")
                         .font(.custom("Strange Path", size: 20))
                         .foregroundColor(.black)
-                    
+                        .offset(y: 20)
 
-                    NavigationLink(destination: ExplanationView(), isActive: $viewModel.isStartActive) {
-                        EmptyView()
-                    }
+                    
                     Button(action: {
-                        viewModel.startButtonTapped()
+                        showExplanationView = true
                     }) {
                         ZStack {
                             Image("bottonTest")
@@ -41,9 +40,11 @@ struct MainMenuView: View {
                         }
                     }
                     .cornerRadius(10)
+                    .offset(y: 20)
+
                     
                     Button(action: {
-                        viewModel.aboutButtonTapped()
+                        showAboutView = true
                     }) {
                         ZStack {
                             Image("bottonTest")
@@ -51,23 +52,29 @@ struct MainMenuView: View {
                                 .scaledToFit()
                                 .frame(height: 50)
                                 .cornerRadius(10)
-
                             
                             Text("ABOUT")
                                 .font(.custom("Strange Path", size: 20))
                                 .foregroundColor(.black)
-
                         }
                     }
                     .padding()
                     .cornerRadius(10)
+                    .offset(y: 10)
+                    
+                    NavigationLink(destination: AboutView(), isActive: $showAboutView) { EmptyView() }
+                    NavigationLink(destination: ExplanationView(), isActive: $showExplanationView) { EmptyView() }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             }
             .navigationBarHidden(true)
         }
         .navigationBarBackButtonHidden(true)
-
     }
+}
 
+struct MainMenuView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainMenuView()
+    }
 }

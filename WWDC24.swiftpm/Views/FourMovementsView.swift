@@ -36,24 +36,30 @@ struct FourMovementsView: View {
                         .multilineTextAlignment(.leading)
                         .lineSpacing(12)
                         .padding(.horizontal)
-                        .offset(y: 60)
+                        .offset(y: 10)
                     
                     ScrollView {
-                        LazyVGrid(columns: columns, spacing: 10) {
+                        LazyVGrid(columns: columns, spacing: 20) { // Ajuste no espaçamento entre os itens do grid
                             ForEach(viewModel.movements, id: \.id) { movement in
-                                Image(movement.imageName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 180, height: 140)
-                                    .cornerRadius(10)
-                                    .shadow(color: movement.isSelected ? Color.black.opacity(0.9) : Color.clear, radius: 10, x: 0, y: 0)
-                                    .onTapGesture {
-                                        viewModel.toggleSelection(for: movement.id)
-                                    }
+                                VStack {
+                                    Image(movement.imageName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 180, height: 140)
+                                        .cornerRadius(10)
+                                        .shadow(color: movement.isSelected ? Color.black.opacity(0.9) : Color.clear, radius: 10, x: 0, y: 0)
+                                    Text(movement.name) // Exibe o nome do movimento
+                                        .font(.custom("Strange Path", size: 10))
+                                        .foregroundColor(.black)
+                                        .padding(.top, 5) // Espaçamento entre a imagem e o texto
+                                }
+                                .onTapGesture {
+                                    viewModel.toggleSelection(for: movement.id)
+                                }
                             }
                         }
-                        .padding()
-                        .offset(y: 90)
+                        .padding(.horizontal)
+                        .offset(y: 30)
                     }
                     
                     NavigationLink(destination: AnimationView(userName: userName, selectedMovementIDs: viewModel.selectedMovementIDs)) {

@@ -38,29 +38,27 @@ struct MovementCardView: View {
                     .multilineTextAlignment(.leading)
                     .offset(y: -300)
                 
-                    LazyVGrid(columns: columns, spacing: 10) {
-                        ForEach(viewModel.movements, id: \.name) { movement in
-                            Button(action: {
-                                viewModel.toggleSelection(for: movement.name)
-                            }) {
-                                VStack {
-                                    Image(movement.isSelected ? movement.selectedImageName : movement.imageName)
-                                        .resizable()
-                                        .scaledToFit()
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(viewModel.movements, id: \.name) { movement in
+                        Button(action: {
+                            viewModel.toggleSelection(for: movement.name)
+                        }) {
+                            VStack {
+                                Image(movement.isSelected ? movement.selectedImageName : movement.imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 140)
 
-                                    if movement.isSelected{
-                                        Text(movement.name)
-                                            .font(.custom("Strange Path", size: 10))
-                                            .foregroundColor(.black)
-                                            .padding(.top, 5) 
-
-                                    }
-
-                                }
+                                Text(movement.isSelected ? movement.name : " ")
+                                    .font(.custom("Strange Path", size: 10))
+                                    .foregroundColor(.black)
+                                    .padding(.top, 5)
+                                    .frame(height: 20) 
                             }
                         }
                     }
-                    .padding(.horizontal)
+                }
+                .padding(.horizontal)
                 
                 NavigationLink(destination: FourMovementsView(userName: userName)) {
                     ZStack {

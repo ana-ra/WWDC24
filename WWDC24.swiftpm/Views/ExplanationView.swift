@@ -10,7 +10,7 @@ struct ExplanationView: View {
             ScrollView {
                 VStack(alignment: .center, spacing: 10) {
                     Text("HEY, TO MAKE OUR TIME TOGETHER EVEN MORE ENJOYABLE, WHAT WOULD YOU LIKE TO BE CALLED?")
-                        .font(.custom("Strange Path", size: 12))
+                        .font(.custom("Strange Path", size: 10))
                         .foregroundColor(.black)
                         .multilineTextAlignment(.center)
                         .lineSpacing(15)
@@ -18,10 +18,10 @@ struct ExplanationView: View {
                         .offset(y: -40)
                     
                     TextField("Enter your name here", text: $viewModel.userName)
-                        .padding() // Isso aumenta o espaço interno, tornando o texto mais centralizado.
-                        .frame(minHeight: 44) // Apple recomenda uma altura mínima de 44 pontos para áreas de toque.
-                        .padding(.horizontal, 20) // Aumenta o espaço externo horizontalmente para uma área de toque maior.
-                        .background(Color.white) // Define a cor de fundo do TextField.
+                        .padding()
+                        .frame(minHeight: 44)
+                        .padding(.horizontal, 20)
+                        .background(Color.white)
                         .cornerRadius(5)
                         .padding()
                         .padding(.horizontal, 20) 
@@ -55,7 +55,7 @@ struct ExplanationView: View {
                     Image("A2")
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: .infinity, maxHeight: 250)
+                        .frame(maxWidth: .infinity, maxHeight: 200)
                         .padding(.top, 20)
                         .offset(y: -40)
 
@@ -78,7 +78,7 @@ struct ExplanationView: View {
                                     .frame(height: 40)
                                     .cornerRadius(10)
                                 Text("NEXT")
-                                    .font(.custom("Strange Path", size: 14))
+                                    .font(.custom("Strange Path", size: 12))
                                     .foregroundColor(.black)
                             }
                         }

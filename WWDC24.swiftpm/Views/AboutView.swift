@@ -1,18 +1,35 @@
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Silvana Rodrigues Alves on 23/02/24.
-//
-
 import SwiftUI
 
-struct SwiftUIView: View {
+struct AboutView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack {
+                Color(hex: "FFFAED")
+                    .edgesIgnoringSafeArea(.all)
+                
+                    .navigationBarItems(leading: Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack {
+                            Text("< BACK")
+                        }
+                        .font(.custom("Strange Path", size: 12))
+                        .foregroundColor(.black)
+                        .background(Color(hex: "FFFAED"))
+                    })
+                
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+
     }
 }
 
-#Preview {
-    SwiftUIView()
+
+struct AboutView_Previews: PreviewProvider {
+    static var previews: some View {
+        AboutView()
+    }
 }

@@ -6,14 +6,17 @@ class FourMovementsViewModel: ObservableObject {
 
     init() {
         movements = [
-            MovementsModel(id: 1, imageName: "Armada1", isSelected: false),
-            MovementsModel(id: 2, imageName: "Negativa1", isSelected: false),
-            MovementsModel(id: 3, imageName: "Au1", isSelected: false),
-            MovementsModel(id: 4, imageName: "Bencao1", isSelected: false),
-            MovementsModel(id: 5, imageName: "Meialua1", isSelected: false),
-            MovementsModel(id: 6, imageName: "Martelo1", isSelected: false),
-            MovementsModel(id: 7, imageName: "Voador1", isSelected: false)
-        ]
+            MovementsModel(id: 1, imageName: "Armada1", isSelected: false, name: "ARMADA"),
+            MovementsModel(id: 2, imageName: "Negativa1", isSelected: false, name: "NEGATIVA"),
+            MovementsModel(id: 3, imageName: "Au1", isSelected: false, name: "AU"),
+            MovementsModel(id: 4, imageName: "Bencao1", isSelected: false, name: "BENCAO"),
+            MovementsModel(id: 5, imageName: "Meialua1", isSelected: false, name: "MEIALUA"),
+            MovementsModel(id: 6, imageName: "Martelo1", isSelected: false, name: "MARTELO"),
+            MovementsModel(id: 7, imageName: "Voador1", isSelected: false, name: "VOADOR")
+        ].map { movement in
+            let adjustedName = movement.imageName.dropLast().uppercased()
+            return MovementsModel(id: movement.id, imageName: movement.imageName, isSelected: movement.isSelected, name: adjustedName)
+        }
     }
 
     func toggleSelection(for movementId: Int) {
