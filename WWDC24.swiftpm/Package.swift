@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Capoeira Experience",
+    name: "CapoEduca",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "Capoeira Experience",
+            name: "CapoEduca",
             targets: ["AppModule"],
             bundleIdentifier: "com.sil.WWDC24",
             teamIdentifier: "J7T48SP5FT",
