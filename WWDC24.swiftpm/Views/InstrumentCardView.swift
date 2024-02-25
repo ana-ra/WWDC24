@@ -68,8 +68,3 @@ struct InstrumentCardView: View {
     }
 }
 
-struct InstrumentCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        InstrumentCardView(userName: "JOÃO")
-    }
-}

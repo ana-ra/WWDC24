@@ -82,9 +82,3 @@ struct MovementCardView: View {
     }
 }
 
-struct MovementCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovementCardView(userName: "JOAO")
-    }
-}
-

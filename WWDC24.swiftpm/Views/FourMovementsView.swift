@@ -93,8 +93,3 @@ struct FourMovementsView: View {
     }
 }
 
-struct FourMovementsView_Previews: PreviewProvider {
-    static var previews: some View {
-        FourMovementsView(userName: "JOAO")
-    }
-}

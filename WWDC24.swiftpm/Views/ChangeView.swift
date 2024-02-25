@@ -62,6 +62,3 @@ struct ChangeView: View {
     }
 }
 
-#Preview {
-    ChangeView(userName: "JOAO")
-}

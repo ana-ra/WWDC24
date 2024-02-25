@@ -113,8 +113,3 @@ struct ExplanationView: View {
     }
 }
 
-struct ExplanationView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExplanationView()
-    }
-}

@@ -68,6 +68,3 @@ struct PairView: View {
     }
 }
 
-#Preview {
-    PairView(selectedMovementID:1)
-}

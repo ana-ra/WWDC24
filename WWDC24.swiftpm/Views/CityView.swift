@@ -74,8 +74,3 @@ struct CityView: View {
     }
 }
 
-struct CityView_Previews: PreviewProvider {
-    static var previews: some View {
-        CityView(userName: "JOÃO")
-    }
-}
