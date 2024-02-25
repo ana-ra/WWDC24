@@ -17,6 +17,7 @@ let package = Package(
             name: "Capoeira Experience",
             targets: ["AppModule"],
             bundleIdentifier: "com.sil.WWDC24",
+            teamIdentifier: "J7T48SP5FT",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .asset("AppIcon"),

@@ -44,7 +44,7 @@ struct FinalView: View {
                         .cornerRadius(10)
                         .padding(.top, 20)
                     }
-                    .padding(.bottom, 50) 
+                    .padding(.bottom, 50)
                 }
                 .navigationBarItems(leading: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
@@ -59,6 +59,9 @@ struct FinalView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .onDisappear {
+            GlobalAudioManager.shared.stopAudio()
+        }
     }
 }
 

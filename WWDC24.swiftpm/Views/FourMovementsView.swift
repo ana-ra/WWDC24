@@ -45,7 +45,7 @@ struct FourMovementsView: View {
                                     Image(movement.imageName)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 180, height: 140)
+                                        .frame(width: 170, height: 130)
                                         .cornerRadius(10)
                                         .shadow(color: movement.isSelected ? Color.black.opacity(0.9) : Color.clear, radius: 10, x: 0, y: 0)
                                     Text(movement.name)
@@ -59,7 +59,7 @@ struct FourMovementsView: View {
                             }
                         }
                         .padding(.horizontal)
-                        .offset(y: 30)
+                        .offset(y: 40)
                     }
                     
                     NavigationLink(destination: AnimationView(userName: userName, selectedMovementIDs: viewModel.selectedMovementIDs)) {

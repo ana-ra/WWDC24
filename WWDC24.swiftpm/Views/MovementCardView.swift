@@ -60,6 +60,7 @@ struct MovementCardView: View {
                                     .font(.custom("Strange Path", size: 14))
                                     .foregroundColor(.black)
                             }
+                            .offset(y:-30)
                         }
                         .padding(.top, 20)
                     }

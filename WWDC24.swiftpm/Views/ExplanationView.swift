@@ -24,11 +24,13 @@ struct ExplanationView: View {
                         .background(Color.white)
                         .cornerRadius(5)
                         .padding()
-                        .padding(.horizontal, 20) 
-                        .onChange(of: viewModel.userName){ newVaule in
-                            if newVaule.count > 20{
-                                viewModel.userName = String(newVaule.prefix(20))
-                            }}
+                        .padding(.horizontal, 20)
+                        .onChange(of: viewModel.userName) { newValue in
+                            if newValue.count > 20 {
+                                viewModel.userName = String(newValue.prefix(20))
+                            }
+                        }
+                        .colorScheme(.light) 
                         .offset(y: -40)
 
                     
